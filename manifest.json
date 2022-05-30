@@ -4,23 +4,22 @@
   "version": "1.0",
   "description": "Converts Sniffspot reservations into a schedule that can be put in Google Calendar.",
   "icons": {
-    "48": "icons/logo-320.png"
+    "320": "icons/logo-320.png"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/logo-320.png"
   },
 
   "content_scripts": [
     {
-      "matches": [
-        "*://*.sniffspot.com/*"
-      ],
-      "js": [
-        "main.js"
-      ]
+      "matches": ["*://*.sniffspot.com/*"],
+      "js": [ "arrive.min.js", "main.js"],
+      "run_at": "document_idle"
     }
-  ],
-
-  "browser_action": {
-    "default_icon": {
-      "38": "icons/logo-320.png"
-    }
-  }
+  ]
 }
