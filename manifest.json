@@ -17,7 +17,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.sniffspot.com/*"],
+      "matches": ["*://*.sniffspot.com/host_account/reservation*"],
       "js": [ "arrive.min.js", "main.js"],
       "run_at": "document_idle"
     }

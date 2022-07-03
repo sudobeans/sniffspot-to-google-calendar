@@ -10,7 +10,8 @@ function alertLogError(message) {
 }
 
 /**
- * If you're on Sniffspot.com, it will generate a csv file for Google Calendar.
+ * If you're on Sniffspot.com, it will generate a csv file for Google Calendar,
+ * and open a Google Calendar tab
  */
 function makeCsv() {
     try{
@@ -60,6 +61,7 @@ function makeCsv() {
  */
 function getReservations() {
     let reservations = [];
+    // The dates are stored in an infinite-scroll-component box
     let datesBox = document.querySelector(".infinite-scroll-component");
     // For each day's reservations container:
     for (let i = 0; i < datesBox.childNodes.length; i++) {
@@ -83,29 +85,32 @@ function getReservations() {
  * @param {Element} element an HTML element
  * @returns visitor object
  */
-function Reservation(element) {
-    this.name = element.querySelector(".snif-p").innerHTML;
-    this.date = null;
-    let times = element.querySelector(".res-time").querySelector(".snif-s1").innerHTML; // lol
-    this.startTime = convertTo24HourTime(times.split(" - ")[0]);
-    this.endTime = convertTo24HourTime(times.split(" - ")[1]);
-    this.dogs = element.querySelector(".res-qty").querySelector(".snif-s1").innerHTML; // lol
+class Reservation {
+    constructor(element) {
+        this.name = element.querySelector(".snif-p").innerHTML;
+        this.date = null;
+        let times = element.querySelector(".res-time").querySelector(".snif-s1").innerHTML; // lol
+        this.startTime = convertTo24HourTime(times.split(" - ")[0]);
+        this.endTime = convertTo24HourTime(times.split(" - ")[1]);
+        this.dogs = element.querySelector(".res-qty").querySelector(".snif-s1").innerHTML; // lol
 
-    this.toString = function () { 
-        return `Visitor name: ${this.name} 
-        Time: ${this.startTime} - ${this.endTime} Dogs: ${this.dogs}` };
+        this.toString = function () {
+            return `Visitor name: ${this.name} 
+            Time: ${this.startTime} - ${this.endTime} Dogs: ${this.dogs}`;
+        };
+    }
 }
 
 
 function init() { 
+    // add button to website
     let reservationsBox = document.getElementsByClassName("reservation-list-wrapper")[0];
-
     let makeCsvButton = document.createElement("button");
     makeCsvButton.setAttribute("class", "col-4 mb-2");
     makeCsvButton.innerText = "Click me to convert reservations into CSV file";
     makeCsvButton.addEventListener("click", makeCsv);
     reservationsBox.insertBefore(makeCsvButton, reservationsBox.firstChild);
-    document.unbindArrive();
+    // document.unbindArrive();
 }
 
 /**
