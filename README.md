@@ -13,4 +13,4 @@ A browser extension that converts Sniffspot reservations into a schedule that ca
 Simply follow the instructions on [Firefox Extension Workshop: Package Your Extension.](https://extensionworkshop.com/documentation/publish/package-your-extension/)
 
 # Other code used
-This uses a minified version of [arrive.js](https://github.com/uzairfarooq/arrive).
+This uses a minified version of [arrive.js v2.4.1](https://github.com/uzairfarooq/arrive/releases/tag/v2.4.1).
