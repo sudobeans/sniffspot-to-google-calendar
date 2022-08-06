@@ -2,7 +2,7 @@
 A browser extension that converts Sniffspot reservations into a schedule that can be put in Google Calendar.
 
 # How to use
-1. Install the extension.
+1. [Install the extension.](https://addons.mozilla.org/en-US/firefox/addon/sniffspot-to-google-calendar/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 2. Go to your [Sniffspot reservations page](https://www.sniffspot.com/host_account/reservation).
 3. Click on the button that says "Click me to convert reservations to CSV file"
 4. This should download a file called "sniffspot-calendar.csv"
