@@ -56,8 +56,8 @@ function makeCsv() {
 }
 
 /**
- * Generates an array of visit objects for the webpage.
- * @return {Array} the array of visit objects.
+ * Generates an array of Reservation objects for the webpage.
+ * @return {Array} the array of Reservation objects.
  */
 function getReservations() {
     let reservations = [];
@@ -81,11 +81,14 @@ function getReservations() {
 }
 
 /**
- * Takes an HTML DOM object and turns it into a visitor object.
- * @param {Element} element an HTML element
- * @returns visitor object
- */
+* A class representing a Reservation.
+*/
 class Reservation {
+    /**
+    * Takes an HTML DOM object and turns it into a Reservation object.
+    * @param {Element} element an HTML element
+    * @returns Reservation object
+    */
     constructor(element) {
         this.name = element.querySelector(".snif-p").innerHTML;
         this.date = null;
